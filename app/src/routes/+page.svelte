@@ -1,5 +1,10 @@
 <script>
+  import { onMount } from 'svelte';
   export let data;
+
+  onMount(() => {
+    localStorage.setItem("films", JSON.stringify(data.films))
+  })
 </script>
 
 <div class="bg-gray-50 p-5">
@@ -23,6 +28,7 @@
 										<h3 class="text-dark mb-4 text-2xl md:text-xl xl:text-lg font-bold">
 											{film.title}
 										</h3>
+										<a href="film/{film.id}">Details</a>
 									</div>
 								</div>
 							</div>
